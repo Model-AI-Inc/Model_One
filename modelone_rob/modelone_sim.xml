@@ -1,0 +1,357 @@
+<?xml version="1.0" ?>
+<mujoco model="modelone">
+  <compiler autolimits="true" angle="radian" meshdir="assets"/>
+  <visual>
+    <headlight ambient="0.3 0.3 0.35" diffuse="0.35 0.35 0.39" specular="0 0 0"/>
+    <rgba haze="0.7 0.7 0.8 0.5"/>
+    <global offwidth="1920" offheight="1080"/>
+  </visual>
+  <option timestep="0.001" iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="pyramidal"/>
+  <default>
+    <default class="/">
+      <default class="humanoid">
+        <joint armature="0.1" damping="1.0" frictionloss="0.1"/>
+        <position kp="50" dampratio="1"/>
+        <default class="visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="collision">
+          <geom condim="3" group="0" rgba="1 0 0 0"/>
+        </default>
+      </default>
+      <default class="motor_00">
+        <joint armature="0.01" frictionloss="0.1" actuatorfrcrange="-14.0 14.0"/>
+        <position kp="20.0" dampratio="1.0" forcelimited="true" forcerange="-14.0 14.0"/>
+      </default>
+      <default class="motor_02">
+        <joint armature="0.01" frictionloss="0.1" actuatorfrcrange="-17.0 17.0"/>
+        <position kp="30.0" dampratio="1.0" forcelimited="true" forcerange="-17.0 17.0"/>
+      </default>
+      <default class="motor_03">
+        <joint armature="0.01" frictionloss="0.1" actuatorfrcrange="-60.0 60.0"/>
+        <position kp="80.0" dampratio="1.0" forcelimited="true" forcerange="-60.0 60.0"/>
+      </default>
+      <default class="motor_04">
+        <joint armature="0.01" frictionloss="0.1" actuatorfrcrange="-120.0 120.0"/>
+        <position kp="160.0" dampratio="1.0" forcelimited="true" forcerange="-120.0 120.0"/>
+      </default>
+    </default>
+  </default>
+  <asset>
+    <mesh file="merged/body_collision.stl"/>
+    <mesh file="merged/body_lower_collision.stl"/>
+    <mesh file="merged/body_lower_visual.stl"/>
+    <mesh file="merged/body_visual.stl"/>
+    <mesh file="merged/head_collision.stl"/>
+    <mesh file="merged/head_visual.stl"/>
+    <mesh file="merged/hip_abd_mount_left_collision.stl"/>
+    <mesh file="merged/hip_abd_mount_left_visual.stl"/>
+    <mesh file="merged/hip_abd_mount_right_collision.stl"/>
+    <mesh file="merged/hip_abd_mount_right_visual.stl"/>
+    <mesh file="merged/knee_motor_mount_collision.stl"/>
+    <mesh file="merged/knee_motor_mount_right_collision.stl"/>
+    <mesh file="merged/knee_motor_mount_right_visual.stl"/>
+    <mesh file="merged/knee_motor_mount_visual.stl"/>
+    <mesh file="merged/left_arm_elbow_collision.stl"/>
+    <mesh file="merged/left_arm_elbow_visual.stl"/>
+    <mesh file="merged/left_arm_lower_back_collision.stl"/>
+    <mesh file="merged/left_arm_lower_back_visual.stl"/>
+    <mesh file="merged/left_arm_shoulder_mount_collision.stl"/>
+    <mesh file="merged/left_arm_shoulder_mount_visual.stl"/>
+    <mesh file="merged/left_arm_top_collision.stl"/>
+    <mesh file="merged/left_arm_top_visual.stl"/>
+    <mesh file="merged/left_foot_collision.stl"/>
+    <mesh file="merged/left_foot_visual.stl"/>
+    <mesh file="merged/leg_lower_left_collision.stl"/>
+    <mesh file="merged/leg_lower_left_visual.stl"/>
+    <mesh file="merged/leg_lower_right_collision.stl"/>
+    <mesh file="merged/leg_lower_right_visual.stl"/>
+    <mesh file="merged/leg_upper_upper_left_collision.stl"/>
+    <mesh file="merged/leg_upper_upper_left_visual.stl"/>
+    <mesh file="merged/leg_upper_upper_right_collision.stl"/>
+    <mesh file="merged/leg_upper_upper_right_visual.stl"/>
+    <mesh file="merged/lever_2_collision.stl"/>
+    <mesh file="merged/lever_2_visual.stl"/>
+    <mesh file="merged/lever_3_collision.stl"/>
+    <mesh file="merged/lever_3_visual.stl"/>
+    <mesh file="merged/lever_4_collision.stl"/>
+    <mesh file="merged/lever_4_visual.stl"/>
+    <mesh file="merged/lever_collision.stl"/>
+    <mesh file="merged/lever_visual.stl"/>
+    <mesh file="merged/linkage_long_collision.stl"/>
+    <mesh file="merged/linkage_long_right_collision.stl"/>
+    <mesh file="merged/linkage_long_right_visual.stl"/>
+    <mesh file="merged/linkage_long_visual.stl"/>
+    <mesh file="merged/linkage_short_collision.stl"/>
+    <mesh file="merged/linkage_short_right_collision.stl"/>
+    <mesh file="merged/linkage_short_right_visual.stl"/>
+    <mesh file="merged/linkage_short_visual.stl"/>
+    <mesh file="merged/neck_collision.stl"/>
+    <mesh file="merged/neck_visual.stl"/>
+    <mesh file="merged/right_arm_elbow_collision.stl"/>
+    <mesh file="merged/right_arm_elbow_visual.stl"/>
+    <mesh file="merged/right_arm_lower_back_collision.stl"/>
+    <mesh file="merged/right_arm_lower_back_visual.stl"/>
+    <mesh file="merged/right_arm_shoulder_mount_collision.stl"/>
+    <mesh file="merged/right_arm_shoulder_mount_visual.stl"/>
+    <mesh file="merged/right_arm_top_collision.stl"/>
+    <mesh file="merged/right_arm_top_visual.stl"/>
+    <mesh file="merged/right_foot_collision.stl"/>
+    <mesh file="merged/right_foot_visual.stl"/>
+    <mesh file="merged/u_join_box_left_collision.stl"/>
+    <mesh file="merged/u_join_box_left_visual.stl"/>
+    <mesh file="merged/u_join_box_right_collision.stl"/>
+    <mesh file="merged/u_join_box_right_visual.stl"/>
+    <material name="body_visual_material" rgba="0.456436 0.589096 0.720618 1"/>
+    <material name="body_collision_material" rgba="0.456436 0.589096 0.720618 1"/>
+    <material name="body_lower_visual_material" rgba="0.581819 0.746212 0.860752 1"/>
+    <material name="body_lower_collision_material" rgba="0.581819 0.746212 0.860752 1"/>
+    <material name="hip_abd_mount_left_visual_material" rgba="0.528347 0.656694 0.799302 1"/>
+    <material name="hip_abd_mount_left_collision_material" rgba="0.528347 0.656694 0.799302 1"/>
+    <material name="leg_upper_upper_left_visual_material" rgba="0.542678 0.65846 0.787107 1"/>
+    <material name="leg_upper_upper_left_collision_material" rgba="0.542678 0.65846 0.787107 1"/>
+    <material name="knee_motor_mount_visual_material" rgba="0.536204 0.661106 0.799887 1"/>
+    <material name="knee_motor_mount_collision_material" rgba="0.536204 0.661106 0.799887 1"/>
+    <material name="leg_lower_left_visual_material" rgba="0.581114 0.685788 0.748593 1"/>
+    <material name="leg_lower_left_collision_material" rgba="0.581114 0.685788 0.748593 1"/>
+    <material name="u_join_box_left_visual_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="u_join_box_left_collision_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="left_foot_visual_material" rgba="0.486257 0.486257 0.486257 1"/>
+    <material name="left_foot_collision_material" rgba="0.486257 0.486257 0.486257 1"/>
+    <material name="lever_visual_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="lever_collision_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="linkage_long_visual_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="linkage_long_collision_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="lever_2_visual_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="lever_2_collision_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="linkage_short_visual_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="linkage_short_collision_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="hip_abd_mount_right_visual_material" rgba="0.528347 0.656694 0.799302 1"/>
+    <material name="hip_abd_mount_right_collision_material" rgba="0.528347 0.656694 0.799302 1"/>
+    <material name="leg_upper_upper_right_visual_material" rgba="0.544106 0.639692 0.7459 1"/>
+    <material name="leg_upper_upper_right_collision_material" rgba="0.544106 0.639692 0.7459 1"/>
+    <material name="knee_motor_mount_right_visual_material" rgba="0.536204 0.661106 0.799887 1"/>
+    <material name="knee_motor_mount_right_collision_material" rgba="0.536204 0.661106 0.799887 1"/>
+    <material name="leg_lower_right_visual_material" rgba="0.580813 0.68535 0.748072 1"/>
+    <material name="leg_lower_right_collision_material" rgba="0.580813 0.68535 0.748072 1"/>
+    <material name="u_join_box_right_visual_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="u_join_box_right_collision_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="right_foot_visual_material" rgba="0.486257 0.486257 0.486257 1"/>
+    <material name="right_foot_collision_material" rgba="0.486257 0.486257 0.486257 1"/>
+    <material name="lever_3_visual_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="lever_3_collision_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="linkage_long_right_visual_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="linkage_long_right_collision_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="lever_4_visual_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="lever_4_collision_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="linkage_short_right_visual_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="linkage_short_right_collision_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="neck_visual_material" rgba="0.789855 0.833863 0.882102 1"/>
+    <material name="neck_collision_material" rgba="0.789855 0.833863 0.882102 1"/>
+    <material name="head_visual_material" rgba="0.32549 0.529412 0.752941 1"/>
+    <material name="head_collision_material" rgba="0.32549 0.529412 0.752941 1"/>
+    <material name="right_arm_shoulder_mount_visual_material" rgba="0.606068 0.778849 0.882518 1"/>
+    <material name="right_arm_shoulder_mount_collision_material" rgba="0.606068 0.778849 0.882518 1"/>
+    <material name="right_arm_top_visual_material" rgba="0.633006 0.794612 0.891576 1"/>
+    <material name="right_arm_top_collision_material" rgba="0.633006 0.794612 0.891576 1"/>
+    <material name="right_arm_elbow_visual_material" rgba="0.62276 0.774626 0.865745 1"/>
+    <material name="right_arm_elbow_collision_material" rgba="0.62276 0.774626 0.865745 1"/>
+    <material name="right_arm_lower_back_visual_material" rgba="0.749241 0.87683 0.949959 1"/>
+    <material name="right_arm_lower_back_collision_material" rgba="0.749241 0.87683 0.949959 1"/>
+    <material name="left_arm_shoulder_mount_visual_material" rgba="0.606068 0.778849 0.882518 1"/>
+    <material name="left_arm_shoulder_mount_collision_material" rgba="0.606068 0.778849 0.882518 1"/>
+    <material name="left_arm_top_visual_material" rgba="0.633006 0.794612 0.891576 1"/>
+    <material name="left_arm_top_collision_material" rgba="0.633006 0.794612 0.891576 1"/>
+    <material name="left_arm_elbow_visual_material" rgba="0.62276 0.774626 0.865745 1"/>
+    <material name="left_arm_elbow_collision_material" rgba="0.62276 0.774626 0.865745 1"/>
+    <material name="left_arm_lower_back_visual_material" rgba="0.749241 0.87683 0.949959 1"/>
+    <material name="left_arm_lower_back_collision_material" rgba="0.749241 0.87683 0.949959 1"/>
+    <texture type="skybox" builtin="gradient" rgb1="0.6 0.67 0.82" rgb2="0.74 0.78 0.9" width="512" height="1024"/>
+    <texture name="floor" type="2d" file="assets/textures/floor.png"/>
+    <material name="floor" texture="floor" texrepeat="0.7 0.7" reflectance="0"/>
+  </asset>
+  <worldbody>
+    <body name="body" pos="0 0 0.88" quat="1.0 0 0 0" childclass="humanoid">
+      <freejoint name="root"/>
+      <body name="imu" pos="-0.1 0.015 0.19" quat="1.0 0 0 0">
+        <inertial pos="-0.003012 0 0.002999" quat="1.0 0.0 0.0 0.0" mass="0.005700" diaginertia="1e-06 1e-06 2e-06"/>
+        <geom name="imu_visual" pos="0 0 0" quat="1.0 0 0 0" type="box" size="0.01 0.02 0.003" rgba="0 1 0 1" class="visual"/>
+        <site name="imu_site" pos="0 0 0" quat="1 0 0 0"/>
+      </body>
+      <inertial pos="-0.018942 0.001457 0.251179" mass="3.84565" fullinertia="0.0725231 0.0594733 0.020516 -7.84446e-05 -0.00258411 8.83924e-05"/>
+      <geom type="mesh" class="visual" pos="-0.018942 0.001457 0.251179" quat="1.0 0 0 0" mesh="body_visual" material="body_visual_material"/>
+      <body name="body_lower" pos="-0.01518 0 -0.012" quat="0 0 0 -1.0">
+        <inertial pos="0 0 -0.100256" mass="4.17833" fullinertia="0.0141195 0.0135919 0.00778336 -2.25187e-09 -1.12383e-05 -9.16379e-09"/>
+        <geom type="mesh" class="visual" pos="0 0 -0.100256" quat="0 0 0 1.0" mesh="body_lower_visual" material="body_lower_visual_material"/>
+        <body name="hip_abd_mount_left" pos="0 -0.053 -0.1225" quat="0 0 -0.70711 -0.70711">
+          <joint axis="0 0 1" name="left_hip_flex" type="hinge" range="-0.9 0.95" class="motor_03"/>
+          <inertial pos="0 0 -0.056763" mass="1.01306" fullinertia="0.00136129 0.000959765 0.000933639 -1.7053e-11 -5.14102e-07 2.21242e-10"/>
+          <geom type="mesh" class="visual" pos="0 0 -0.056763" quat="0.70711 -0.70711 0 0" mesh="hip_abd_mount_left_visual" material="hip_abd_mount_left_visual_material"/>
+          <geom type="mesh" class="collision" pos="0 0 -0.056763" quat="0.70711 -0.70711 0 0" mesh="hip_abd_mount_left_collision" material="hip_abd_mount_left_collision_material"/>
+          <body name="leg_upper_upper_left" pos="0.0282 0 -0.0595" quat="0.70711 0 -0.70711 0">
+            <joint axis="0 0 1" name="left_hip_ab" type="hinge" range="-0.15 0.13" class="motor_03"/>
+            <inertial pos="0.01404 -0.111217 0.028175" mass="1.123" fullinertia="0.00190274 0.00165145 0.00176373 9.30994e-05 -4.13147e-06 2.54422e-05"/>
+            <geom type="mesh" class="visual" pos="0.01404 -0.111217 0.028175" quat="0.5 -0.5 0.5 0.5" mesh="leg_upper_upper_left_visual" material="leg_upper_upper_left_visual_material"/>
+            <body name="knee_motor_mount" pos="0.015 -0.1454 0.0283" quat="0.5 -0.5 -0.5 -0.5">
+              <joint axis="0 0 1" name="left_hip_rot" type="hinge" range="-0.5 0.5" class="motor_03"/>
+              <inertial pos="-0.019378 0 -0.160764" mass="1.041" fullinertia="0.00214858 0.00253248 0.000938413 8.56138e-07 -8.14148e-05 -6.85493e-05"/>
+              <geom type="mesh" class="visual" pos="-0.019378 0 -0.160764" quat="0 0 0 1.0" mesh="knee_motor_mount_visual" material="knee_motor_mount_visual_material"/>
+              <geom type="mesh" class="collision" pos="-0.019378 0 -0.160764" quat="0 0 0 1.0" mesh="knee_motor_mount_collision" material="knee_motor_mount_collision_material"/>
+              <body name="leg_lower_left" pos="-0.019665 -0.0275 -0.1711" quat="0.5 -0.5 0.5 0.5">
+                <joint axis="0 0 1" name="left_knee" type="hinge" range="-1.2 0.0" class="motor_03"/>
+                <inertial pos="0.163698 -0.017632 0.027147" mass="1.52106" fullinertia="0.00100369 0.014844 0.0148515 0.000128089 -0.000834107 5.60807e-05"/>
+                <geom type="mesh" class="visual" pos="0.163698 -0.017632 0.027147" quat="0.5 -0.5 -0.5 0.5" mesh="leg_lower_left_visual" material="leg_lower_left_visual_material"/>
+                <body name="u_join_box_left" pos="0.405551 -0.021 0.0233" quat="0 0.70711 0.70711 0">
+                  <joint axis="0 0 1" name="left_foot_pitch" type="hinge" range="-1.047198 1.047198"/>
+                  <inertial pos="0 0 -0.0085" mass="0.0105657" fullinertia="4.06576e-07 3.53173e-07 4.06576e-07 2.16416e-13 1.51588e-17 -7.98128e-13"/>
+                  <geom type="mesh" class="visual" pos="0 0 -0.0085" quat="0.70711 0.70711 0 0" mesh="u_join_box_left_visual" material="u_join_box_left_visual_material"/>
+                  <geom type="mesh" class="collision" pos="0 0 -0.0085" quat="0.70711 0.70711 0 0" mesh="u_join_box_left_collision" material="u_join_box_left_collision_material"/>
+                  <body name="left_foot" pos="0.0085 0 -0.0085" quat="0 0.70711 0 -0.70711">
+                    <joint axis="0 0 1" name="left_foot_roll" type="hinge" range="-1.047198 1.047198"/>
+                    <inertial pos="0 -0.031111 -0.005042" mass="0.265073" fullinertia="0.000692941 0.000772156 0.000191201 4.56429e-10 2.74043e-09 -3.66785e-05"/>
+                    <geom type="mesh" class="visual" pos="0 -0.031111 -0.005042" quat="0.50001 -0.5 0.5 0.50001" mesh="left_foot_visual" material="left_foot_visual_material"/>
+                    <geom name="l_foot" class="collision" pos="-0.001 -0.05 -0.04" quat="1.0 0 0 0" type="box" size="0.06 0.014 0.12" friction="1.1 0.005 0.0001" solref="0.005 1" solimp="0.92 0.96 0.001" condim="3"/>
+                    <site name="l_foot" pos="-0.001 -0.05 -0.04" quat="1 0 0 0"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="hip_abd_mount_right" pos="0 0.053 -0.1225" quat="0 0 0.70711 -0.70711">
+          <joint axis="0 0 1" name="right_hip_flex" type="hinge" range="-0.95 0.9" class="motor_03"/>
+          <inertial pos="0 0 -0.056763" mass="1.01306" fullinertia="0.00136129 0.000959765 0.000933639 -5.17911e-12 -5.14126e-07 -1.73963e-11"/>
+          <geom type="mesh" class="visual" pos="0 0 -0.056763" quat="0.70711 0.70711 0 0" mesh="hip_abd_mount_right_visual" material="hip_abd_mount_right_visual_material"/>
+          <geom type="mesh" class="collision" pos="0 0 -0.056763" quat="0.70711 0.70711 0 0" mesh="hip_abd_mount_right_collision" material="hip_abd_mount_right_collision_material"/>
+          <body name="leg_upper_upper_right" pos="0.0282 0 -0.0595" quat="0 -0.70711 0 0.70711">
+            <joint axis="0 0 1" name="right_hip_ab" type="hinge" range="-0.15 0.13" class="motor_03"/>
+            <inertial pos="-0.013273 -0.105288 0.027906" mass="1.36027" fullinertia="0.00309815 0.00220595 0.00279118 -0.000188917 9.76418e-06 6.12101e-05"/>
+            <geom type="mesh" class="visual" pos="-0.013273 -0.105288 0.027906" quat="0.5 -0.5 0.5 0.5" mesh="leg_upper_upper_right_visual" material="leg_upper_upper_right_visual_material"/>
+            <body name="knee_motor_mount_right" pos="-0.015 -0.1454 0.0283" quat="0.5 -0.5 -0.5 -0.5">
+              <joint axis="0 0 1" name="right_hip_rot" type="hinge" range="-0.5 0.5" class="motor_03"/>
+              <inertial pos="-0.019378 0 -0.160764" mass="1.041" fullinertia="0.00215111 0.00253248 0.000935882 -8.56093e-07 -8.14145e-05 6.85484e-05"/>
+              <geom type="mesh" class="visual" pos="-0.019378 0 -0.160764" quat="0 0 0 1.0" mesh="knee_motor_mount_right_visual" material="knee_motor_mount_right_visual_material"/>
+              <geom type="mesh" class="collision" pos="-0.019378 0 -0.160764" quat="0 0 0 1.0" mesh="knee_motor_mount_right_collision" material="knee_motor_mount_right_collision_material"/>
+              <body name="leg_lower_right" pos="-0.019665 0.0275 -0.1711" quat="0.70711 0.70711 0 0">
+                <joint axis="0 0 1" name="right_knee" type="hinge" range="-0.0 1.2" class="motor_03"/>
+                <inertial pos="0.017629 -0.163639 0.027159" mass="1.52306" fullinertia="0.0148587 0.00100547 0.0148659 0.000127202 -5.5986e-05 0.000832299"/>
+                <geom type="mesh" class="visual" pos="0.017629 -0.163639 0.027159" quat="0 0 -0.70711 -0.70711" mesh="leg_lower_right_visual" material="leg_lower_right_visual_material"/>
+                <body name="u_join_box_right" pos="0.021 -0.405551 0.0403" quat="0 0 0 -1.0">
+                  <joint axis="0 0 1" name="right_foot_pitch" type="hinge" range="-1.047198 1.047198"/>
+                  <inertial pos="0 0 -0.0085" mass="0.0105657" fullinertia="4.06576e-07 3.53173e-07 4.06576e-07 1.81278e-12 -1.5164e-17 7.98128e-13"/>
+                  <geom type="mesh" class="visual" pos="0 0 -0.0085" quat="0.70711 0.70711 0 0" mesh="u_join_box_right_visual" material="u_join_box_right_visual_material"/>
+                  <geom type="mesh" class="collision" pos="0 0 -0.0085" quat="0.70711 0.70711 0 0" mesh="u_join_box_right_collision" material="u_join_box_right_collision_material"/>
+                  <body name="right_foot" pos="0.0085 0 -0.0085" quat="0 0.70711 0 -0.70711">
+                    <joint axis="0 0 1" name="right_foot_roll" type="hinge" range="-1.047198 1.047198"/>
+                    <inertial pos="0 -0.031111 -0.005042" mass="0.265073" fullinertia="0.000692948 0.000772164 0.000191201 3.80234e-10 3.65325e-09 -3.66766e-05"/>
+                    <geom type="mesh" class="visual" pos="0 -0.031111 -0.005042" quat="0.50001 -0.5 0.5 0.50001" mesh="right_foot_visual" material="right_foot_visual_material"/>
+                    <geom name="r_foot" class="collision" pos="-0.001 -0.05 -0.04" quat="1.0 0 0 0" type="box" size="0.06 0.014 0.12" friction="1.1 0.005 0.0001" solref="0.005 1" solimp="0.92 0.96 0.001" condim="3"/>
+                    <site name="r_foot" pos="-0.001 -0.05 -0.04" quat="1 0 0 0"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="neck" pos="-0.018634 0 0.409" quat="0 -1.0 0 0">
+        <inertial pos="0 0 -0.093858" mass="0.635067" fullinertia="0.000923446 0.00102116 0.000375147 -8.90935e-07 -1.4635e-05 2.34101e-07"/>
+        <geom type="mesh" class="visual" pos="0 0 -0.093858" quat="0 1.0 0 0" mesh="neck_visual" material="neck_visual_material"/>
+        <body name="head" pos="0 0.0226 -0.10905" quat="0.03084 0.03084 -0.70643 0.70643">
+          <inertial pos="-0.019825 0.065065 0.016491" mass="0.407762" fullinertia="0.0028331 0.00158323 0.00197824 -4.25031e-05 3.71607e-05 -0.000127121"/>
+          <geom type="mesh" class="visual" pos="-0.019825 0.065065 0.016491" quat="0.03084 0.03084 -0.70643 -0.70643" mesh="head_visual" material="head_visual_material"/>
+          <geom type="mesh" class="collision" pos="-0.019825 0.065065 0.016491" quat="0.03084 0.03084 -0.70643 -0.70643" mesh="head_collision" material="head_collision_material"/>
+        </body>
+      </body>
+      <body name="right_arm_shoulder_mount" pos="-0.01518 -0.102068 0.316865" quat="0.64279 -0.76604 0 0">
+        <joint axis="0 0 1" name="right_arm_flex" type="hinge" range="-1.4 0.4" class="motor_03"/>
+        <inertial pos="0.001316 0 -0.062997" mass="0.460743" fullinertia="0.000394338 0.00030453 0.000233834 2.00509e-06 -4.61876e-06 4.06605e-06"/>
+        <geom type="mesh" class="visual" pos="0.001316 0 -0.062997" quat="0.64279 0.76604 0 0" mesh="right_arm_shoulder_mount_visual" material="right_arm_shoulder_mount_visual_material"/>
+        <body name="right_arm_top" pos="0.0242 0 -0.0675" quat="0.70711 0 -0.70711 0">
+          <inertial pos="0 0.089956 0.025957" mass="0.5068" fullinertia="0.000598242 0.000396287 0.000549921 1.2354e-07 2.30525e-08 2.34852e-05"/>
+          <geom type="mesh" class="visual" pos="0 0.089956 0.025957" quat="0.45452 0.54168 0.45452 -0.54168" mesh="right_arm_top_visual" material="right_arm_top_visual_material"/>
+          <body name="right_arm_elbow" pos="0 0.1212 0.02545" quat="0.70711 0.70711 0 0">
+            <inertial pos="-0.001237 0.002371 -0.109567" mass="0.5242" fullinertia="0.000879285 0.000744675 0.00029075 -1.07228e-06 -8.77294e-06 -8.75276e-05"/>
+            <geom type="mesh" class="visual" pos="-0.001237 0.002371 -0.109567" quat="0.70442 0.06163 -0.06163 -0.70442" mesh="right_arm_elbow_visual" material="right_arm_elbow_visual_material"/>
+            <geom type="mesh" class="collision" pos="-0.001237 0.002371 -0.109567" quat="0.70442 0.06163 -0.06163 -0.70442" mesh="right_arm_elbow_collision" material="right_arm_elbow_collision_material"/>
+            <body name="right_arm_lower_back" pos="-0.02555 0 -0.121" quat="0.5 0.5 0.5 0.5">
+              <joint axis="0 0 1" name="right_arm_elbow" type="hinge" range="-1.4 0.0" class="motor_03"/>
+              <inertial pos="0.005553 -0.084365 0.028884" mass="0.0923" fullinertia="0.00031165 4.32479e-05 0.000299733 1.94132e-05 1.728e-06 -2.62219e-05"/>
+              <geom type="mesh" class="visual" pos="0.005553 -0.084365 0.028884" quat="0 0 -0.76604 -0.64279" mesh="right_arm_lower_back_visual" material="right_arm_lower_back_visual_material"/>
+              <geom type="mesh" class="collision" pos="0.005553 -0.084365 0.028884" quat="0 0 -0.76604 -0.64279" mesh="right_arm_lower_back_collision" material="right_arm_lower_back_collision_material"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="left_arm_shoulder_mount" pos="-0.015183 0.102467 0.316905" quat="0.64279 0.76604 0 0">
+        <joint axis="0 0 1" name="left_arm_flex" type="hinge" range="-0.4 1.4" class="motor_03"/>
+        <inertial pos="0.001316 0 -0.062997" mass="0.460743" fullinertia="0.000394338 0.00030453 0.000233834 -2.00505e-06 -4.6188e-06 -4.06605e-06"/>
+        <geom type="mesh" class="visual" pos="0.001316 0 -0.062997" quat="0.64279 -0.76604 0 0" mesh="left_arm_shoulder_mount_visual" material="left_arm_shoulder_mount_visual_material"/>
+        <body name="left_arm_top" pos="0.0242 0 -0.0675" quat="0 -0.70711 0 0.70711">
+          <inertial pos="0 0.089956 0.025957" mass="0.5068" fullinertia="0.000598242 0.000396299 0.000549933 -1.7111e-06 1.04153e-06 2.34852e-05"/>
+          <geom type="mesh" class="visual" pos="0 0.089956 0.025957" quat="0.54168 0.45452 0.54168 -0.45452" mesh="left_arm_top_visual" material="left_arm_top_visual_material"/>
+          <body name="left_arm_elbow" pos="0 0.1212 0.02545" quat="0.5 0.5 -0.5 0.5">
+            <inertial pos="0.002753 -0.001237 -0.109567" mass="0.5242" fullinertia="0.000744675 0.000878356 0.000289822 -7.74374e-07 -8.52343e-05 -8.77293e-06"/>
+            <geom type="mesh" class="visual" pos="0.002753 -0.001237 -0.109567" quat="0 0 -0.08716 0.9962" mesh="left_arm_elbow_visual" material="left_arm_elbow_visual_material"/>
+            <geom type="mesh" class="collision" pos="0.002753 -0.001237 -0.109567" quat="0 0 -0.08716 0.9962" mesh="left_arm_elbow_collision" material="left_arm_elbow_collision_material"/>
+            <body name="left_arm_lower_back" pos="0 -0.02555 -0.121" quat="0.70711 -0.70711 0 0">
+              <joint axis="0 0 1" name="left_arm_elbow" type="hinge" range="-0.0 1.4" class="motor_03"/>
+              <inertial pos="0.005553 0.084365 0.028884" mass="0.0923" fullinertia="0.00031165 4.32479e-05 0.000299733 -1.94132e-05 1.728e-06 2.62219e-05"/>
+              <geom type="mesh" class="visual" pos="0.005553 0.084365 0.028884" quat="0 0 0.76604 -0.64279" mesh="left_arm_lower_back_visual" material="left_arm_lower_back_visual_material"/>
+              <geom type="mesh" class="collision" pos="0.005553 0.084365 0.028884" quat="0 0 0.76604 -0.64279" mesh="left_arm_lower_back_collision" material="left_arm_lower_back_collision_material"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <light pos="0 0 3.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.1" pos="0 0 0" type="plane" material="floor" friction="0.8 0.005 0.0001" solref="0.01 1" solimp="0.9 0.95 0.002" condim="3"/>
+    <camera name="lookat" mode="targetbodycom" target="body" pos="0.65 -0.6 1.4"/>
+    <camera name="headcam" mode="fixed" pos="0.0 -0.02 1.27" euler="-1.7 0 3.14159" fovy="57"/>
+  </worldbody>
+  <contact>
+    <exclude body1="body_lower" body2="leg_upper_upper_left"/>
+    <exclude body1="body_lower" body2="leg_upper_upper_right"/>
+    <exclude body1="body" body2="left_arm_top"/>
+    <exclude body1="body" body2="right_arm_top"/>
+    <exclude body1="leg_lower_left" body2="u_join_box_left"/>
+    <exclude body1="leg_lower_left" body2="left_foot"/>
+    <exclude body1="u_join_box_left" body2="left_foot"/>
+    <exclude body1="leg_lower_right" body2="u_join_box_right"/>
+    <exclude body1="leg_lower_right" body2="right_foot"/>
+    <exclude body1="u_join_box_right" body2="right_foot"/>
+  </contact>
+  <actuator>
+    <position name="right_hip_flex_ctrl" joint="right_hip_flex" class="motor_04" ctrlrange="-0.95 0.9"/>
+    <position name="right_hip_ab_ctrl" joint="right_hip_ab" class="motor_03" ctrlrange="-0.15 0.13"/>
+    <position name="right_hip_rot_ctrl" joint="right_hip_rot" class="motor_03" ctrlrange="-0.5 0.5"/>
+    <position name="right_knee_ctrl" joint="right_knee" class="motor_03" ctrlrange="-0.0 1.2"/>
+    <position name="right_foot_pitch_ctrl" joint="right_foot_pitch" class="motor_02" ctrlrange="-1.047198 1.047198"/>
+    <position name="right_foot_roll_ctrl" joint="right_foot_roll" class="motor_02" ctrlrange="-1.047198 1.047198"/>
+    <position name="left_hip_flex_ctrl" joint="left_hip_flex" class="motor_04" ctrlrange="-0.9 0.95"/>
+    <position name="left_hip_ab_ctrl" joint="left_hip_ab" class="motor_03" ctrlrange="-0.15 0.13"/>
+    <position name="left_hip_rot_ctrl" joint="left_hip_rot" class="motor_03" ctrlrange="-0.5 0.5"/>
+    <position name="left_knee_ctrl" joint="left_knee" class="motor_03" ctrlrange="-1.2 0.0"/>
+    <position name="left_foot_pitch_ctrl" joint="left_foot_pitch" class="motor_02" ctrlrange="-1.047198 1.047198"/>
+    <position name="left_foot_roll_ctrl" joint="left_foot_roll" class="motor_02" ctrlrange="-1.047198 1.047198"/>
+    <position name="right_arm_flex_ctrl" joint="right_arm_flex" class="motor_03" ctrlrange="-1.4 0.4"/>
+    <position name="left_arm_flex_ctrl" joint="left_arm_flex" class="motor_03" ctrlrange="-0.4 1.4"/>
+    <position name="right_arm_elbow_ctrl" joint="right_arm_elbow" class="motor_02" ctrlrange="-1.4 0.0"/>
+    <position name="left_arm_elbow_ctrl" joint="left_arm_elbow" class="motor_02" ctrlrange="-0.0 1.4"/>
+  </actuator>
+  <sensor>
+    <gyro site="imu_site" name="gyro" noise="0.01"/>
+    <velocimeter site="imu_site" name="local_linvel"/>
+    <accelerometer site="imu_site" name="accelerometer" noise="0.01"/>
+    <framequat objtype="site" objname="imu_site" name="imu_site_quat" noise="0.01"/>
+    <frameangvel objtype="site" objname="imu_site" name="imu_site_angvel" noise="0.01"/>
+    <framelinvel objtype="site" objname="imu_site" name="imu_site_linvel"/>
+    <framepos objtype="site" objname="imu_site" name="imu_site_pos"/>
+    <framelinvel objtype="site" objname="l_foot" name="l_foot_global_linvel"/>
+    <framelinvel objtype="site" objname="r_foot" name="r_foot_global_linvel"/>
+    <framexaxis objtype="site" objname="l_foot" name="l_foot_upvector"/>
+    <framexaxis objtype="site" objname="r_foot" name="r_foot_upvector"/>
+    <framepos objtype="site" objname="l_foot" name="l_foot_pos"/>
+    <framepos objtype="site" objname="r_foot" name="r_foot_pos"/>
+  </sensor>
+</mujoco>

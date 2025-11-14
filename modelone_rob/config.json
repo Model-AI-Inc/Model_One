@@ -1,0 +1,29 @@
+{
+  "url": "https://cad.onshape.com/documents/194cfea5024b4d52f52858ab/w/427e8563680111b57e8c1ddc/e/754bbf98c843a5e8f497d059",
+  "outputFormat": "mujoco",
+  "output_filename": "humanoid",
+  "robot_name": "humanoid",
+  "assemblyName": "humanoid",
+  "assets_dir": "assets",
+  "simplify_stls": "all",
+  "max_stl_size": 0.05,
+  "merge_stls": true,
+  "joint_properties": {
+    
+    "left_foot_pitch":  {"actuated": true},
+    "left_foot_roll":   {"actuated": true},
+    "right_foot_pitch": {"actuated": true},
+    "right_foot_roll":  {"actuated": true},
+
+    "left_ankle":        {"actuated": false},
+    "left_ankle_lower":  {"actuated": false},
+    "right_ankle":       {"actuated": false},
+    "right_ankle_lower": {"actuated": false},
+    
+    "default": {
+      "max_effort": 10,
+      "max_velocity": 10,
+      "kp": 100
+    }
+  }
+}

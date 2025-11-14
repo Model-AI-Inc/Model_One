@@ -1,0 +1,79 @@
+<mujoco model="scene">
+    <include file="humanoid.xml" />
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
+        <rgba haze="0.15 0.25 0.35 1" />
+    </visual>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0.1 0.3 0.4" width="512" height="1024" />
+        <texture name="floor" type="2d" file="assets/textures/floor.png" />
+        <material name="floor" texture="floor" texrepeat="0.7 0.7" reflectance="0" />
+        <mesh name="chair_mesh" file="models/chair.stl" scale="0.22 0.22 0.22"/>
+        
+        <!-- Ball texture and material -->
+        <texture name="ball" type="2d" file="assets/textures/basketball.png" />
+        <material name="ball_material" texture="ball" rgba="1 0.5 0 1" shininess="0.3" specular="0.3" />
+    </asset>
+    <worldbody>
+        <light pos="0 0 3.5" dir="0 0 -1" directional="true" />
+        <geom name="floor" size="0 0 0.1" pos="0 0 -0.875" type="plane" material="floor" friction="1 0.005 0.0001" solref="0.02 1" solimp="0.95 0.95 0.01" condim="3" />
+
+        <!-- Ball -->
+        <body name="ball" pos="0.0 -5 -0.65">
+            <joint name="ball_joint" type="free" user="1"/>
+            <geom name="ball_geom" type="sphere" size="0.12" material="ball_material" mass="0.62" friction="1.0 0.005 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001" />
+        </body>
+
+        <!-- Chair (visual only) -->
+        <body name="chair" pos="-2.5 0.0 -0.8" euler="0 0 0">
+            <geom name="chair" type="mesh" mesh="chair_mesh" rgba="0.4 0.4 0.4 1" contype="0" conaffinity="0"/>
+        </body>
+
+        <!-- Chair collision seat box -->
+        <body name="chair_collision_seat" pos="-2.3 0.0 -0.8" euler="0 0 0">
+            <geom name="chair_collision_seat" type="box" size="0.20 0.25 0.08" pos="0 0 0.25" rgba="0.4 0.4 0.4 0.0" contype="1" conaffinity="1"/>
+        </body>
+
+        <!-- Chair collision backrest box -->
+        <body name="chair_collision_back" pos="-2.4 0.0 -0.35" euler="0 0 0">
+            <geom name="chair_collision_back" type="box" size="0.03 0.25 0.20" rgba="0.4 0.4 0.4 0.0" contype="1" conaffinity="1"/>
+        </body>
+    </worldbody>
+
+  <contact>
+    <!-- Stop the legs from colliding with the body -->
+    <exclude body1="body_lower" body2="leg_upper_upper_left"/>
+    <exclude body1="body_lower" body2="leg_upper_upper_right"/>
+    <exclude body1="body" body2="left_arm_top"/>
+    <exclude body1="body" body2="right_arm_top"/>
+    
+    <!-- Stop ankle/leg/foot collisions -->
+    <exclude body1="leg_lower_left" body2="u_join_box_left"/>
+    <exclude body1="leg_lower_left" body2="left_foot"/>
+    <exclude body1="u_join_box_left" body2="left_foot"/>
+    <exclude body1="leg_lower_right" body2="u_join_box_right"/>
+    <exclude body1="leg_lower_right" body2="right_foot"/>
+    <exclude body1="u_join_box_right" body2="right_foot"/>
+    
+    <!-- Stop linkage_short collisions with feet, levers, and lower legs -->
+    <exclude body1="linkage_short" body2="left_foot"/>
+    <exclude body1="linkage_short" body2="lever"/>
+    <exclude body1="linkage_short" body2="lever_2"/>
+    <exclude body1="linkage_short" body2="leg_lower_left"/>
+    <exclude body1="linkage_short_right" body2="right_foot"/>
+    <exclude body1="linkage_short_right" body2="lever_3"/>
+    <exclude body1="linkage_short_right" body2="lever_4"/>
+    <exclude body1="linkage_short_right" body2="leg_lower_right"/>
+    
+    <!-- Stop linkage_long collisions with feet, levers, and lower legs -->
+    <exclude body1="linkage_long" body2="left_foot"/>
+    <exclude body1="linkage_long" body2="lever"/>
+    <exclude body1="linkage_long" body2="lever_2"/>
+    <exclude body1="linkage_long" body2="leg_lower_left"/>
+    <exclude body1="linkage_long_right" body2="right_foot"/>
+    <exclude body1="linkage_long_right" body2="lever_3"/>
+    <exclude body1="linkage_long_right" body2="lever_4"/>
+    <exclude body1="linkage_long_right" body2="leg_lower_right"/>
+  </contact>
+  
+</mujoco>
